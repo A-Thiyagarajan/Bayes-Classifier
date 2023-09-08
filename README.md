@@ -2,12 +2,12 @@
 ## Aim:
 To Construct a Bayes Classifier to classiy iris dataset using Python.
 ## Algorithm:
-Input: 
+#### Input: 
 - X: the training data, where each row represents a sample and each column represents a feature.
 - y: the target labels for the training data.
 - X_test: the testing data, where each row represents a sample and each column represents a feature.
 
-Output:
+#### Output:
 - y_pred: the predicted labels for the testing data.
 
 1. Create a BayesClassifier class with the following methods:
@@ -22,12 +22,37 @@ Output:
 7. Evaluate the classifier's accuracy using the accuracy_score function from scikit-learn.
 
 ## Program:
-''' Type your code here'''
+```
+Reg.no: 212222240110
+Name: A.Thiyagarajan
 
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+class BayesClassifier:
+  def __init__(self):
+    self.clf=GaussianNB()
+  def fit(self,X,y):
+    self.clf.fit(X,y)
+  def predict(self,X):
+    return self.clf.predict(X)
+iris=load_iris()
+X_train,X_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.3,random_state=38)
+clf=BayesClassifier()
+clf.fit(X_train,y_train)
+y_pred=clf.predict(X_test)
+accuracy=accuracy_score(y_test,y_pred)
+print("Accuracy:",accuracy)
+```
 ## Output:
-''' Output screen shots here
+
+![img2](https://github.com/A-Thiyagarajan/Bayes-Classifier/assets/118707693/1a7c9267-f6f6-4b7e-b305-60b22edc5c60)
+
+
 ## Result:
-Hence, Bayes classifier for iris dataset is implemented successfully
+Hence, Bayes classifier for iris dataset is implemented successfully.
 
 
 
